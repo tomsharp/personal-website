@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="projects-title">My Projects</h1>
+<div class="projects-container">
+    {% for project in projects %}
+    <a href="{{ project.link }}" target="_blank" class="project-card">
+        <img src="{{ project.image }}" alt="" class="project-image" />
+        <div class="project-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

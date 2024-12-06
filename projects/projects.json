@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Code Project",
+        "description": "A brief description of Project One. It showcases some amazing features.",
+        "link": "https://github.com/yourusername/project-one",
+        "image": "/static/images/projects/project-one.jpg"
+    },
+    {
+        "title": "Web Design",
+        "description": "A brief description of Project Two. This project focuses on advanced concepts.",
+        "link": "https://github.com/yourusername/project-two",
+        "image": "/static/images/projects/project-two.jpg"
+    },
+    {
+        "title": "Data Graph",
+        "description": "A brief description of Project Three. It demonstrates problem-solving skills.",
+        "link": "https://github.com/yourusername/project-three",
+        "image": "/static/images/projects/project-three.jpg"
+    }
+]

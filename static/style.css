@@ -1,8 +1,11 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
 }
 nav {
     background-color: #333;
@@ -17,11 +20,16 @@ nav a {
     text-decoration: none;
     margin: 0 1rem;
 }
+nav a:hover {
+    text-decoration: underline;
+}
 .container {
     padding: 5rem 1rem;
     max-width: 1200px;
     margin: auto;
 }
+
+/* Subscribe Box (for Newsletter Page) */
 .subscribe-box {
     margin-bottom: 2rem;
     text-align: center;
@@ -44,9 +52,17 @@ nav a {
 .subscribe-box button:hover {
     background-color: #0056b3;
 }
+
+/* Cards (for Newsletter Page) */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
 .card {
     border: 1px solid #ddd;
     border-radius: 4px;
+    text-decoration: none;
     margin: 1rem;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -55,10 +71,13 @@ nav a {
 }
 .card a {
     text-decoration: none;
-    color: inherit;
+    color: inherit; 
     display: block;
     padding: 1rem;
     height: 100%;
+}
+.card:hover a {
+    text-decoration: none;
 }
 .card img {
     width: 100%;
@@ -75,8 +94,198 @@ nav a {
 .card p {
     color: #555;
 }
-.cards-container {
+
+
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.post-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #007bff;
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #555;
+}
+
+
+/* Post Page */
+.post-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+.post-content {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.back-link:hover {
+    background-color: #555;
+}
+
+
+.flash-messages {
+    margin-top: 1rem;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+.flash-messages li {
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin: 0.5rem auto;
+    max-width: 400px;
+}
+.flash-messages .success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.flash-messages .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Contact Page */
+.contact-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.icon {
+    text-decoration: none;
+    color: #333;
+    font-size: 2rem;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+.icon.twitter {
+    color: #1da1f2; /* Twitter blue */
+}
+
+.icon.github {
+    color: #333;
+}
+
+.icon.medium {
+    color: #00ab6c; /* Medium green */
+}
+
+.icon.email {
+    color: #d44638; /* Email red */
+}
+
+.icon.linkedin {
+    color: #0077b5; /* LinkedIn blue */
+}
+
+.icon.linkedin:hover {
+    color: #005582; /* Darker LinkedIn blue on hover */
+}
+
+
+/* Projects Page */
+.projects-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.projects-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.project-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.project-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.project-link:hover {
+    color: #0056b3;
 }

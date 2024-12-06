@@ -1,4 +1,6 @@
-# Welcome to Our First Post
+# Welcome!
+![Welcome](../static/images/newsletter/welcome-image.jpg)
+
 This is the introduction to our very first newsletter post. In this post, we talk about the importance of staying updated and how newsletters can bring value to your inbox.
 
 Here’s a detailed breakdown:

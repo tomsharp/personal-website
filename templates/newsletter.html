@@ -1,122 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter Postings</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
-        }
-        .container {
-            padding: 5rem 1rem;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .subscribe-box {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        .subscribe-box input[type="email"] {
-            padding: 0.5rem;
-            width: 300px;
-            margin-right: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .subscribe-box button {
-            padding: 0.5rem 1rem;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .subscribe-box button:hover {
-            background-color: #0056b3;
-        }
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 1rem;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            overflow: hidden;
-        }
-        .card a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            padding: 1rem;
-            height: 100%;
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .card h3 {
-            margin: 1rem 0;
-        }
-        .card p {
-            color: #555;
-        }
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div>Website</div>
-        <div>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="subscribe-box">
+    <form method="POST" action="{{ url_for('newsletter') }}">
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+
+<div class="cards-container">
+    {% for post in posts %}
+    <a href="{{ url_for('view_post', slug=post.slug) }}" class="card">
+        {% if post.image %}
+        <img src="{{ post.image }}" alt="" class="post-image" />
+        {% endif %}
+        <div class="card-content">
+            <h3>{{ post.title }}</h3>
+            <p>By: <strong>{{ post.author }}</strong></p>
+            <p>Created: {{ post.created_datetime.strftime('%Y-%m-%d') }}</p>
         </div>
-    </nav>
-
-    <div class="container">
-        <!-- Subscribe Box -->
-        <div class="subscribe-box">
-            <input type="email" placeholder="Enter your email" />
-            <button>Subscribe</button>
-        </div>
-
-        <!-- Cards Section -->
-        <div class="cards-container">
-            {% for post in post_files %}
-            <a href="{{ url_for('view_post', filename=post) }}" class="card">
-                <h3>{{ post.replace('.md', '').replace('_', ' ').title() }}</h3>
-                <p>Read more...</p>
-            </a>
-            {% endfor %}
-        </div>
-
-    </div>
-
-</body>
-</html>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
