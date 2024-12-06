@@ -7,12 +7,12 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         rel="stylesheet"
     />
-    <title>{{ title }}</title>
+    <title>{{ site_title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('home') }}" style="text-decoration: none;">WebsiteName</a>
+        <a href="{{ url_for('home') }}" style="text-decoration: none;">{{ site_title }}</a>
         <div>
             <a href="{{ url_for('home') }}">Home</a>
             <a href="{{ url_for('projects') }}">Projects</a>
@@ -25,4 +25,12 @@
         {% endblock %}
     </div>
 </body>
+<footer>
+    <p>&copy; {{ footer_config.year }} {{ footer_config.name }} 💻</p>
+    <p>
+        {% for platform, link in footer_config.social_links.items() %}
+            <a href="{{ link }}" target="_blank">{{ platform }}</a>{% if not loop.last %} | {% endif %}
+        {% endfor %}
+    </p>
+</footer>
 </html>
